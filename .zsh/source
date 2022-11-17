@@ -1,0 +1,6 @@
+#!/bin/sh
+# Shell aliases
+source $HOME/.zsh/aliases
+
+# Shell functions
+source $HOME/.zsh/functions

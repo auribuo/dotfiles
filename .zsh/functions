@@ -1,0 +1,87 @@
+#!/bin/sh
+
+setlp () {
+    echo $(pwd) > $HOME/.lastpath # write dir into the file
+}
+
+lp () {
+    if [[ -f $HOME/.lastpath ]]; then # check if file exists
+        cd $(cat $HOME/.lastpath)
+    else
+		echo "~/.lastpath does not exist!"
+    fi
+}
+
+plp () {
+	if [[ -f $HOME/.lastpath ]]; then
+    	echo "lp: $(cat $HOME/.lastpath)"
+    else
+        echo "~/.lastpath does not exist!"
+    fi
+}
+
+gitall () {
+    if [[ -f $HOME/.gitrepos ]]; then
+        zmodload zsh/mapfile
+        FNAME=$HOME/.gitrepos
+        GREPOS=( "${(f)mapfile[$FNAME]}" )
+        (( RCNT-- ))
+        for ITEM in $GREPOS
+		{
+			cd $ITEM
+        	git add . -v
+        	git commit -a -v -q -m "Auto Commit" -m "Commited automatically with shellscript."
+        	git push -v -q
+		}
+    else
+    	echo "~/.gitrepos does not exist!"
+    fi
+}
+
+mdir() {
+	mkdir -p $1
+	cd $1
+}
+
+mexec() {
+	sudo chmod +x $1
+}
+
+inst () {
+	if [[ -a bin/$1 ]]; then
+    	cp bin/$1 $HOME/.local/bin
+    else
+        echo "Error!"
+    fi
+}
+
+uinst () {
+    if [[ -a $HOME/.local/bin/$1 ]]; then
+        rm -f $HOME/.local/bin/$1
+    else
+        echo "File $1 not found"
+    fi
+}
+
+i() {
+    sudo apt update
+    if [[ ! $? ]]; then
+        echo "An error has occured"
+    fi
+    sudo apt install -y $1
+    shift
+    while [[ ! $? ]]
+    do
+        sudo apt install -y $1
+        shift
+    done
+}
+
+wise_cow() {
+	clear
+	fortune -a | cowsay | lolcat
+}
+
+update() {
+  sudo pacman -Syu
+}

@@ -1,0 +1,10 @@
+#!/bin/bash
+sed -n '/START_KEYS/,/END_KEYS/p' ~/.config/sxhkd/sxhkdrc |\
+	grep -E 'super|#|X|##'|\
+	grep -vE '#START_KEYS|#END_KEYS' |\
+	sed -E '/## .|super ./{G;}' |\
+	sed -E '/XF86./{G;}'|\
+	yad --text-info --back=#303446 --fore=#C6D0F5 --geometry=1200x800
+
+
+

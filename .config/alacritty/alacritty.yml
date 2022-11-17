@@ -1,0 +1,24 @@
+#     _    _                 _ _   _          #
+#    / \  | | __ _  ___ _ __(_) |_| |_ _   _  #
+#   / _ \ | |/ _` |/ __| '__| | __| __| | | | #
+#  / ___ \| | (_| | (__| |  | | |_| |_| |_| | #
+# /_/   \_\_|\__,_|\___|_|  |_|\__|\__|\__, | #
+#                                      |___/  #
+
+
+
+window:
+  padding:
+    x: 20
+    y: 20
+  dynamic_padding: true
+  decorations: none
+
+font:
+  normal:
+    family: MesloLGS NF
+    style: Regular
+  size: 9
+
+import: 
+  - ~/.config/alacritty/themes/catppuccin-mocha.yml
