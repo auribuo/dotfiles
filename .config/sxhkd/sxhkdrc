@@ -13,7 +13,7 @@ super + b
 
 # terminal emulator
 super + Return
-	alacritty
+	kitty
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -27,8 +27,10 @@ super + {d,r,p,Print}
 super + @space
 	sh ~/.config/bspwm/scripts/sxhkd_binds
 
-## bspwm hotkeys
+super + shift + p
+	polybar-msg cmd toggle
 
+## bspwm hotkeys
 
 # quit/restart bspwm
 super + alt + {q,r}
