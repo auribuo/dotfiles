@@ -14,10 +14,11 @@ window {
     transparency:                   "real";
     background-color:               @BG;
     text-color:                     @FG;
-    border:                         2px;
+    border:                         0px;
     border-color:                   @BDR;
     border-radius:                  10px;
-    width:                          500px;
+    width:                          100%;
+    height:                         100%;
     anchor:                         center;
     x-offset:                       0;
     y-offset:                       0;
@@ -35,9 +36,9 @@ textbox-prompt-colon {
     str: 			                "";
     border-radius:                  100%;
     background-color:               @SEL;
-    text-color:                     @FG;
+    text-color:                     @BG;
     padding:                        8px 12px 8px 12px;
-    font:			                "Iosevka Nerd Font 10";
+    font:			                "MesloLGS NF 12";
 }
 
 entry {
@@ -76,9 +77,8 @@ case-indicator {
 
 listview {
     background-color:               @BG;
-    columns:                        1;
-    lines:			                7;
-    spacing:                        4px;
+    columns:                        5;
+    spacing:                        20px;
     cycle:                          false;
     dynamic:                        true;
     layout:                         vertical;
@@ -94,7 +94,7 @@ mainbox {
 element {
     background-color:               @BG;
     text-color:                     @FG;
-    orientation:                    horizontal;
+    orientation:                    vertical;
     border-radius:                  4px;
     padding:                        6px 6px 6px 6px;
 }
@@ -104,7 +104,7 @@ element-icon {
     text-color:       		        inherit;
     horizontal-align:               0.5;
     vertical-align:                 0.5;
-    size:                           24px;
+    size:                           140px;
     border:                         0px;
 }
 
@@ -112,7 +112,7 @@ element-text {
     background-color: 		        inherit;
     text-color:       		        inherit;
     expand:                         true;
-    horizontal-align:               0;
+    horizontal-align:               0.5;
     vertical-align:                 0.5;
     margin:                         2px 0px 2px 2px;
 }
@@ -128,6 +128,7 @@ element normal.active,
 element alternate.active {
     background-color:               @BGA;
     text-color:                     @FG;
+    font:                           "MesloLGS NF Bold 12";
 }
 
 element selected {
