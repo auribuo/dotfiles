@@ -7,40 +7,50 @@
 
 
 #START_KEYS
-## wm independent hotkeys
+
+
+### WM INDEPENDED HOTKEYS ###
+
+# open browser
 super + b
 	firefox
 
-# terminal emulator
+# open terminal emulator
 super + Return
 	kitty
 
-# make sxhkd reload its configuration files:
-super + Escape
-	pkill -USR1 -x sxhkd
-
-# rofi launcher, runner, powermenu, screenshot
+# open rofi launcher, runner, powermenu, screenshot
 super + {d,r,p,Print}
 	sh $HOME/.config/rofi/bin/{launcher,runner,powermenu,screenshot}
 
-# keybind list
+# change keyboard layout
 super + @space
-	sh ~/.config/bspwm/scripts/sxhkd_binds
+	sh $HOME/.config/bspwm/scripts/kmap
 
+# open keybind help	
+super + shift + @space
+	sh $HOME/.config/rofi/bin/sxhkd-help
+	
+# toggle polybar visibility
 super + shift + p
 	polybar-msg cmd toggle
 
-## bspwm hotkeys
+
+### BSPWM KEYBINDS ###
 
 # quit/restart bspwm
 super + alt + {q,r}
 	bspc {quit,wm -r}
+	
+# restart sxhkd
+super + alt + shift + r
+	pkill -usr1 -x sxhkd
 
-# close and kill
+# close/kill window
 super + {_,shift + }w
 	bspc node -{c,k}
 
-# alternate between the tiled and monocle layout
+# alternate between tiled/monocle layout
 super + m
 	bspc desktop -l next
 
@@ -52,14 +62,12 @@ super + y
 super + g
 	bspc node -s biggest.window
 
-# lock
+# lock session
 super + shift + x
 	betterlockscreen -l
 
 
-
-## state/flags
-
+### BSPWM WINDOW STATES ###
 
 # set the window state
 super + {t,shift + t,s,f}
@@ -70,9 +78,7 @@ super + ctrl + {m,x,y,z}
 	bspc node -g {marked,locked,sticky,private}
 
 
-
-## focus/swap
-
+## BSPWM FOCUS ###
 
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
@@ -105,9 +111,7 @@ super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
 
-
-## preselect
-
+### BSPWM PRESELECT ###
 
 # preselect the direction
 super + ctrl + {h,j,k,l}
@@ -126,9 +130,7 @@ super + ctrl + shift + space
 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
 
-
-## move/resize
-
+### BSPWM MOVE/RESIZE ###
 
 # expand a window by moving one of its side outward
 super + alt + {h,j,k,l}
@@ -143,57 +145,54 @@ super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 
-
-## volume/media controls
-
+### VOLUME/MEDIA ###
 
 # volume up 
-#XF86AudioRaiseVolume
-#	pactl set-sink-volume @DEFAULT_SINK@ +5%
+XF86AudioRaiseVolume
+	pactl set-sink-volume @DEFAULT_SINK@ +5%
 
 # raise small
-#super + XF86AudioRaiseVolume
-#        pactl set-sink-volume @DEFAULT_SINK@ +1% 
+shift + XF86AudioRaiseVolume
+        pactl set-sink-volume @DEFAULT_SINK@ +1% 
 
 # volume down
-#XF86AudioLowerVolume 
-#	pactl set-sink-volume @DEFAULT_SINK@ -5%
+XF86AudioLowerVolume 
+	pactl set-sink-volume @DEFAULT_SINK@ -5%
 
 # lower small
-#super + XF86AudioLowerVolume
-#       pactl set-sink-volume @DEFAULT_SINK@ -1% 
+shift + XF86AudioLowerVolume
+       pactl set-sink-volume @DEFAULT_SINK@ -1% 
 
 # mute volume
-#XF86AudioMute 
-#	pactl set-sink-mute @DEFAULT_SINK@ toggle &
+XF86AudioMute 
+	pactl set-sink-mute @DEFAULT_SINK@ toggle &
 
 # play media
-#XF86AudioPlay 
-#	playerctl play-pause &
+XF86AudioPlay 
+	playerctl play-pause &
 
 # pause media
-#XF86AudioPause 
-#	playerctl play-pause &
+XF86AudioPause 
+	playerctl play-pause &
 
 # next media
-#XF86AudioNext 
-#	playerctl next &
+XF86AudioNext 
+	playerctl next &
 
 # previous media
-#XF86AudioPrev 
-#	playerctl previous &
+XF86AudioPrev 
+	playerctl previous &
 
 
-
-## brightness
-
+### BRIGHTNESS ###
 
 # brightness up
-#XF86MonBrightnessUp
-#	brightnessctl s +10% &
+XF86MonBrightnessUp
+	brightnessctl s +10% &
 
 # brightness down
-#XF86MonBrightnessDown
-#        brightnessctl s 10%- &
+XF86MonBrightnessDown
+        brightnessctl s 10%- &
+
 
 #END_KEYS

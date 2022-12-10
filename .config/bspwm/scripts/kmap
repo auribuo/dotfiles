@@ -1,0 +1,16 @@
+#!/bin/sh
+
+KMAP=$(setxkbmap -query | grep layout | sed "s/layout://g" | sed "s/ *//g")
+
+if [[ $KMAP == "it" ]]
+then
+  KMAP="de"
+elif [[ $KMAP == "de" ]]
+then
+  KMAP="us"
+else
+  KMAP="it"
+fi
+
+setxkbmap -layout $KMAP
+notify-send -t 500 "Keyboad layout now $KMAP"
