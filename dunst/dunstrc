@@ -1,0 +1,56 @@
+[global]
+	### Display ###
+	follow = "keyboard"
+	
+	### Geometry ###
+	
+	width = 500
+	origin = "top-right"
+	scale = 0
+	notification_limit = 5
+	
+	### Progress Bar ###
+	progress_bar = true
+	# TODO fix
+	
+	### Misc ###
+	indicate_hidden = "yes"
+	separator_height = 1
+	padding = 5
+	horizontal_padding = 5
+	text_icon_padding = 10
+	separator_color= "frame"
+	corner_radius = 10
+	
+	### Frame ###
+	frame_width = 2
+	frame_color = "#f38ba8"
+	
+	### Text ###
+	font = "Roboto 13"
+	markup = "full"
+	format = "<b>%s</b>\n%b\n%p"
+	alignment = "left"
+	vertical_alignment = "center"
+	show_age_threshold = 60
+	ignore_newline = "no"
+	stack_duplicates = true
+	hide_duplicate_count = false
+	show_indicators = "yes"
+	
+	### Icons ###
+	enable_recursive_icon_lookup = true
+	icon_theme = "Papirus-Dark, Adwaita"
+	icon_position = "left"
+
+[urgency_low]
+	background = "#1e1e2e"
+	foreground = "#cdd6f4"
+
+[urgency_normal]
+	background = "#1e1e2e"
+	foreground = "#cdd6f4"
+
+[urgency_critical]
+	background = "#1e1e2e"
+	foreground = "#f38ba8"
